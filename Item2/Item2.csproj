@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\MyTypeException.cs" />
     <Compile Include="Collection\UsersCollections.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />

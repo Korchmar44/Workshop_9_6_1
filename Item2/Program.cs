@@ -1,4 +1,5 @@
 ﻿using Item2.Collection;
+using Item2.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Item2
         {
             UsersCollections usersCollections = new UsersCollections();
             usersCollections.OnCollectionChanged += UsersCollections_OnCollectionChanged;
-
+            MyTypeException exceptionnew = new MyTypeException("Не верный формат ввода");
             try
             {
                 //Добавление пользователей
@@ -30,11 +31,15 @@ namespace Item2
 
                 //проверка на првильность ввода цифр
                 if (sorting_direction != 0 && sorting_direction != 1 && sorting_direction != 2)
-                    throw new FormatException();
+                    throw exceptionnew;
 
                 usersCollections.SortedList(usersCollections.Users, sorting_direction);
             }
-            catch (FormatException ex)
+            catch (MyTypeException ex) 
+            {
+                Console.WriteLine("Не верный формат");
+            }
+            catch(FormatException ex)
             {
                 Console.WriteLine(ex.Message);
             }
